@@ -1,42 +1,171 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', sans-serif;
     display: flex;
     flex-direction: column;
+    color: white;
 }
 
 ul {
     padding: 0;
     margin: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+a:hover {
+    color: white;
 }
 
 /* header section */
 header {
     display: flex;
+    flex-direction: column;
+    background-image: url(media/main-image-1.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.header-container-1 {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-wrap: wrap-reverse;
+    gap: 16px;
+}
+
+.header-container-2 {
+    display: flex;
+    flex: 1 0 50%;
+    justify-content: space-between;
+    margin: 24px;
+}
+
+.header-container-3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 80px 0 120px 0;
+    row-gap: 24px;
 }
 
 .logo {
     width: 420px;
     height: auto;
 }
+
+nav a {
+    padding: 2px;
+    border-style: solid;
+}
+
+.hero-text {
+    text-align: center;
+    font-size: 56px;
+}
+
+.hero-subtext {
+    text-align: center;
+    max-width: 80vw;
+    font-size: 22px;
+}
+
 /* services section */
+#services-section {
+    background-image: url(media/city-1.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+    align-items: center;
+    gap: 60px 24px;
+    padding: 100px 24px 100px 24px;
+}
+
 .location-list {
     height: 200px;
     width: 200px;
     overflow: hidden;
     overflow-y: scroll;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 16px;
+    border-style: solid;
+    border-radius: 10px;
+    font-size: 18px;
+    font-style: italic;
+}
+
+.services-container-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 16px;
+}
+
+.services-container-1 h2 {
+    font-size: 38px;
+    font-weight: bolder;
+}
+
+.phone-gif {
+    width: 100px;
+    height: auto;
+}
+
+.services-container-2 {
+    flex: 1 1 50%;
+    column-gap: 12px;
+    display: flex;
+    font-size: 22px;
+    font-style: italic;
+    justify-content: center;
+    text-align: center;
+}
+
+.services-container-2 h3 {
+    font-weight: bold;
+    font-size: 42px;
+    font-style: normal;
+}
+
+.plumbing-services {
+    text-align: center;
+}
+
+.plumbing-services ul {
+    padding: 12px;
+    background-color: #FD716580;
+    border-radius: 10px;
+    border-style: solid;
+}
+
+.drainage-services {
+    text-align: center;
+}
+
+.drainage-services ul {
+    padding: 12px;
+    background-color: #05BACC80;
+    border-radius: 10px;
+    border-style: solid;
 }
 /* image gallery section */
 
-#carouselExampleFade {
+#carouselFade {
    max-width: 500px;
 }
 
-#carouselExampleFade .carousel-item img{
+#carouselFade .carousel-item img{
     object-fit: cover;
     object-position: center;
     height: 90vh;
     overflow: hidden;
 }
 
-$carousel-control-color: red;
+
 /* contact us section */
