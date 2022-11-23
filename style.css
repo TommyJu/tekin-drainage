@@ -80,16 +80,16 @@ nav a {
     background-size: cover;
     background-position: center;
     display: flex;
-    flex-wrap: wrap-reverse;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 60px 24px;
+    gap: 60px 36px;
     padding: 100px 24px 100px 24px;
 }
 
 .location-list {
-    height: 200px;
-    width: 200px;
+    height: 160px;
+    width: 340px;
     overflow: hidden;
     overflow-y: scroll;
     background-color: rgba(0, 0, 0, 0.6);
@@ -108,8 +108,9 @@ nav a {
 }
 
 .services-container-1 h2 {
-    font-size: 38px;
+    font-size: 52px;
     font-weight: bolder;
+    text-align: center;
 }
 
 .phone-gif {
@@ -118,13 +119,13 @@ nav a {
 }
 
 .services-container-2 {
-    flex: 1 1 50%;
-    column-gap: 12px;
+    gap: 24px 12px;
     display: flex;
-    font-size: 22px;
+    font-size: 24px;
     font-style: italic;
     justify-content: center;
     text-align: center;
+    flex-wrap: wrap;
 }
 
 .services-container-2 h3 {
@@ -142,6 +143,7 @@ nav a {
     background-color: #FD716580;
     border-radius: 10px;
     border-style: solid;
+    width: 300px;
 }
 
 .drainage-services {
@@ -153,6 +155,7 @@ nav a {
     background-color: #05BACC80;
     border-radius: 10px;
     border-style: solid;
+    width: 300px;
 }
 /* image gallery section */
 
