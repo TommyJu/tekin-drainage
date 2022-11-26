@@ -165,11 +165,11 @@ nav a {
 is a flex item, relative positioning used */
 #carouselFade {
    width: 500px;
-   margin: 80px 0 20px 0;
+   margin: 80px 0 80px 0;
 }
 
 #image-gallery-section {
-    background-color: black;
+    background: linear-gradient(180deg, black 85%, white 100%);
     display: flex;
     flex-wrap: wrap-reverse;
     justify-content: center;
@@ -194,11 +194,74 @@ is a flex item, relative positioning used */
 
 /* contact us section */
 #contact-us-section {
-    background: linear-gradient(180deg, black 20%, white 100%);
+    background-color: white;
+    color: black;
+}
+
+#contact-us-section a {
+    color: black;
+    border-style: solid;
+    border-radius: 30px;
+    border-width: 4px;
+    padding: 8px;
+    font-size: 28px;
+}
+
+.phone-button:hover {
+    background-color: #FD7165;
+}
+
+.email-button:hover {
+    background-color: #05BACC;
+}
+
+#contact-us-section h2 {
+    text-align: center;
+    font-size: 42px;
+    margin: 26px 0 40px 0;
+}
+
+#contact-us-section p {
+    text-align: center;
+    font-size: 28px;
+    margin: 18px;
 }
 
 .van-logo {
-    width: 200px;
+    width: 300px;
     height: auto;
+}
+
+.contact-us-container-1 {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+    align-items: center;
+    gap: 18px 36px;
+    margin: 40px 0 20px 0;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+#contact-us-section button {
+    border-radius: 30px;
+    color: rgba(255, 255, 255, 0.8);
+    background-color: black;
+}
+
+#contact-us-section button:hover {
+    color: white;
+}
+/* Media queries (screen size optimized for 320px) */
+
+@media(max-width: 500px) {
+    #carouselFade {
+        width: 320px;
+    }
 }
 
