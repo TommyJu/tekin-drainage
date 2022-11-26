@@ -1,2 +1,4 @@
 # tekin-drainage
 A landing page for my step dad's plumbing company.
+
+Project summary: This project helped me solidify my understanding of HTML and CSS so that I can feel confident creating web pages for future projects. I experimented with using Bootstrap by implementing a carousel feature and it forced me to overcome challenges with the help of forums. I also learned that with the use of Flexbox and media queries, creating a responsive web page isn't too difficult. Overall, I am excited to keep on learning. Even though some of my code might not be considered best practice, I will embrace imperfection as an opportunity to keep improving.
