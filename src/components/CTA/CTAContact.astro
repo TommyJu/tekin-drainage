@@ -5,7 +5,16 @@ import { BUSINESS } from "@data/client";
 <section id="contact">
   <div class="section-inner">
     <h2>Get in touch</h2>
-    <p>A plumbing &amp; drainage specialist is available 24/7 &mdash; call or email anytime.</p>
+    <p>
+      A plumbing &amp; drainage specialist is available 24/7 — call or email
+      anytime.
+    </p>
+
+    <img
+      class="van-image"
+      src="/assets/images/van.png"
+      alt="Tekin Drainage service van"
+    />
 
     <div class="contact-actions">
       <a class="contact-btn phone" href={BUSINESS.phoneHref}>
@@ -22,12 +31,22 @@ import { BUSINESS } from "@data/client";
 
 <style lang="less">
   #contact {
+    position: relative;
+    overflow: hidden;
     background: linear-gradient(180deg, var(--teal) 0%, var(--teal-dark) 100%);
     color: var(--white);
     padding: 4.5rem 1.25rem;
     text-align: center;
+    .van-image {
+      width: 400px;
+      max-width: 90%;
+      height: auto;
+      margin: 1.5rem auto 2rem;
+      display: block;
+    }
 
     .section-inner {
+      position: relative;
       max-width: 600px;
       margin: 0 auto;
     }
@@ -61,7 +80,9 @@ import { BUSINESS } from "@data/client";
       text-decoration: none;
       color: var(--white);
       min-width: 220px;
-      transition: background 0.15s ease, border-color 0.15s ease;
+      transition:
+        background 0.15s ease,
+        border-color 0.15s ease;
 
       .label {
         font-size: 0.8rem;

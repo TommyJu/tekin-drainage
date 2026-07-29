@@ -2,7 +2,7 @@ import { defineConfig, fontProviders } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import icon from "astro-icon";
 export default defineConfig({
-  site: "https://intermediate-astro-kit-decap-cms.netlify.app", // update me!
+  site: "https://www.tekindps.com/",
   integrations: [
     icon(),
     sitemap({
