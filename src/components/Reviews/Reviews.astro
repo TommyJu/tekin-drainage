@@ -1,0 +1,164 @@
+---
+import { BUSINESS } from "@data/client";
+import { getReviewSchema } from "@js/reviewSchema.js";
+
+// Replace with real reviews copied from your Google Business Profile.
+// Keep the wording close to verbatim — don't invent quotes.
+const reviews = [
+  { author: "REPLACE — Google reviewer name", rating: 5, quote: "REPLACE with an actual review quote from your Google profile." },
+  { author: "REPLACE — Google reviewer name", rating: 5, quote: "REPLACE with an actual review quote from your Google profile." },
+  { author: "REPLACE — Google reviewer name", rating: 5, quote: "REPLACE with an actual review quote from your Google profile." },
+];
+
+// Replace with your real aggregate numbers from Google.
+const ratingValue = "5.0";
+const reviewCount = "0";
+
+const schema = getReviewSchema(reviews, ratingValue, reviewCount);
+---
+
+<section id="reviews">
+  <div class="section-inner">
+    <p class="eyebrow">Google Reviews</p>
+    <h2>What our customers say</h2>
+
+    <div class="rating-summary">
+      <span class="stars" aria-hidden="true">&starf;&starf;&starf;&starf;&starf;</span>
+      <span class="rating-text">{ratingValue} out of 5 &middot; {reviewCount} Google reviews</span>
+    </div>
+
+    <div class="review-cards">
+      {reviews.map((r) => (
+        <blockquote class="review-card">
+          <span class="stars" aria-hidden="true">{"★".repeat(r.rating)}</span>
+          <p>&ldquo;{r.quote}&rdquo;</p>
+          <cite>{r.author}</cite>
+        </blockquote>
+      ))}
+    </div>
+
+    <div class="review-actions">
+      <a class="btn btn-primary" href={BUSINESS.googleReviewUrl} target="_blank" rel="noopener">
+        Leave us a review
+      </a>
+      <a class="btn btn-ghost" href={BUSINESS.googleProfileUrl} target="_blank" rel="noopener">
+        Read all reviews on Google
+      </a>
+    </div>
+  </div>
+</section>
+
+<script slot="schema" is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+<style lang="less">
+  #reviews {
+    background: var(--paper);
+    padding: 4.5rem 1.25rem;
+
+    .section-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .eyebrow {
+      font-family: var(--font-display);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.85rem;
+      color: var(--amber-dark);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 3vw, 2.25rem);
+      color: var(--teal-dark);
+      margin: 0 0 1.25rem;
+    }
+
+    .rating-summary {
+      margin-bottom: 2.5rem;
+      .stars {
+        color: var(--amber);
+        font-size: 1.4rem;
+        margin-right: 0.5rem;
+      }
+      .rating-text {
+        font-weight: 600;
+        color: var(--ink);
+      }
+    }
+
+    .review-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+      text-align: left;
+      margin-bottom: 2.5rem;
+    }
+
+    .review-card {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin: 0;
+      box-shadow: 0 1px 3px rgba(20, 66, 77, 0.08);
+
+      .stars {
+        color: var(--amber);
+        font-size: 0.9rem;
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        font-size: 0.95rem;
+        line-height: 1.55;
+        color: var(--ink);
+        margin: 0 0 0.75rem;
+      }
+
+      cite {
+        font-style: normal;
+        font-size: 0.85rem;
+        color: var(--steel);
+        font-weight: 600;
+      }
+    }
+
+    .review-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.8rem 1.6rem;
+      border-radius: 999px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .btn-primary {
+      background: var(--amber);
+      color: var(--white);
+      &:hover {
+        background: var(--amber-dark);
+      }
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--teal-dark);
+      border: 1.5px solid var(--teal-dark);
+      &:hover {
+        background: var(--teal-dark);
+        color: var(--white);
+      }
+    }
+  }
+</style>

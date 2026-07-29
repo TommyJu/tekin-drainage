@@ -1,0 +1,301 @@
+/*-- -------------------------- -->
+<---         CSS Reset          -->
+<--- -------------------------- -*/
+
+/* Modern CSS Reset - Based on Josh Comeau's reset */
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  /* 4. Add accessible line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+/*
+  10. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/*-- -------------------------- -->
+<---       CSS Variables        -->
+<--- -------------------------- -*/
+
+@media only screen and (min-width: 0em) {
+  :root {
+    --teal: #14424d;
+    --teal-dark: #0c2e36;
+    --amber: #e8823d;
+    --amber-dark: #c86a2a;
+
+    // Neutrals
+    --ink: #1f2a2e;
+    --steel: #5b6b70;
+    --paper: #f7f9fa;
+    --white: #ffffff;
+
+    // Typography — condensed display face for a utility/trade feel,
+    // paired with a plain, highly-legible body face.
+    --font-display: "Barlow Semi Condensed", sans-serif;
+    --font-body: "Inter", sans-serif;
+
+    --bodyTextColor: var(--ink);
+    --bodyTextColorWhite: var(--white);
+  }
+}
+
+/*-- -------------------------- -->
+<---     Base Element Styles    -->
+<--- -------------------------- -*/
+
+body,
+html {
+  font-family: var(--font-primary);
+  font-size: 100%;
+  color: var(--bodyTextColor);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--headerColor);
+}
+
+p,
+li,
+a {
+  font-size: (16/16rem);
+  line-height: 1.5em;
+}
+
+p,
+li {
+  color: var(--bodyTextColor);
+}
+
+a,
+button {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+/*-- -------------------------- -->
+<---   Typography Helpers       -->
+<--- -------------------------- -*/
+
+// Text styles - can be replaced using CodeStitch's "Content Flair" Stitches
+.cs-topper {
+  font-size: var(--topperFontSize);
+  font-weight: 700;
+  line-height: 1.2em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--secondary);
+  display: block;
+}
+
+.cs-title {
+  font-size: var(--headerFontSize);
+  font-weight: 900;
+  line-height: 1.2em;
+  margin: 0 auto (16/16rem);
+  color: var(--headerColor);
+  position: relative;
+}
+
+.cs-text {
+  font-size: var(--bodyFontSize);
+  line-height: 1.5em;
+  width: 100%;
+  margin: 0 auto;
+  color: var(--bodyTextColor);
+}
+
+/*-- -------------------------- -->
+<---    Component Classes       -->
+<--- -------------------------- -*/
+
+@media only screen and (min-width: 0em) {
+  // Button - can be replaced using CodeStitch's "Button" Stitches
+  .cs-button-solid {
+    font-size: (16/16rem);
+    font-weight: bold;
+    line-height: (50/16em);
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    width: auto;
+    height: (50/16rem);
+    padding: 0 (30/16rem);
+
+    // Transition Properties
+    color: #000;
+    background-color: var(--primary);
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    transition: color 0.3s;
+    transition-delay: 0.1s;
+
+    &:hover {
+      color: #fff;
+      &:before {
+        width: 100%;
+      }
+    }
+
+    &:before {
+      content: "";
+
+      //Transition properties
+      width: 0;
+      height: 100%;
+      background-color: #000;
+      opacity: 1;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      transition: width 0.3s;
+    }
+  }
+
+  .container {
+    width: 92%;
+    margin: auto;
+    position: relative;
+  }
+
+  // Skip to main content link - accessible to keyboard users and screen readers
+  .skip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(-100%);
+    z-index: 10001; // Above header (10000)
+    opacity: 0;
+    overflow: hidden;
+    transition:
+      transform 0.3s,
+      opacity 0.3s;
+
+    &:focus {
+      transform: translateY(0);
+      opacity: 1;
+      padding: 1rem 1.5rem;
+      background-color: var(--primary);
+      color: var(--headerColor);
+      text-decoration: none;
+      font-weight: 700;
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+    }
+  }
+}
+
+/*-- -------------------------- -->
+<---      Utility Classes       -->
+<--- -------------------------- -*/
+
+// prevents icons from shrinking in flex containers
+[data-icon] {
+  flex-shrink: 0;
+}
+
+.cs-hide-on-mobile {
+  display: none;
+}
+
+.cs-hide-on-desktop {
+  display: block;
+}
+
+/*-- -------------------------- -->
+<---   Responsive Adjustments   -->
+<--- -------------------------- -*/
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+  .cs-hide-on-mobile {
+    display: block;
+  }
+
+  .cs-hide-on-desktop {
+    display: none;
+  }
+}
+
+/* Scale full website with the viewport width */
+@media only screen and (min-width: 2000px) {
+  body,
+  html {
+    font-size: 0.85vw;
+  }
+}

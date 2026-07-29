@@ -1,0 +1,136 @@
+---
+import { SERVICES, BUSINESS } from "@data/client";
+---
+
+<section id="services">
+  <div class="section-inner">
+    <p class="eyebrow">What we do</p>
+    <h2>Full-service plumbing &amp; drainage</h2>
+
+    <div class="service-groups">
+      {SERVICES.map((group) => (
+        <div class="service-group">
+          <h3>{group.category}</h3>
+          <div class="service-cards">
+            {group.items.map((item) => (
+              <article class="service-card">
+                <h4>{item.name}</h4>
+                <p>{item.detail}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="areas-callout">
+      <h3>Areas we serve</h3>
+      <ul class="areas-list">
+        {BUSINESS.serviceAreas.map((area) => <li>{area}</li>)}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style lang="less">
+  #services {
+    background: var(--paper);
+    padding: 4.5rem 1.25rem;
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      font-family: var(--font-display);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.85rem;
+      color: var(--amber-dark);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 3vw, 2.25rem);
+      color: var(--teal-dark);
+      margin: 0 0 2.5rem;
+    }
+
+    .service-groups {
+      display: grid;
+      gap: 3rem;
+    }
+
+    .service-group h3 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      color: var(--ink);
+      margin-bottom: 1rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 2px solid var(--amber);
+      display: inline-block;
+    }
+
+    .service-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1rem;
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 1.25rem 1.4rem;
+      box-shadow: 0 1px 3px rgba(20, 66, 77, 0.08);
+
+      h4 {
+        font-size: 1rem;
+        color: var(--teal-dark);
+        margin: 0 0 0.5rem;
+      }
+
+      p {
+        font-size: 0.92rem;
+        line-height: 1.55;
+        color: var(--steel);
+        margin: 0;
+      }
+    }
+
+    .areas-callout {
+      margin-top: 3rem;
+      background: var(--white);
+      border-radius: 12px;
+      padding: 1.75rem;
+
+      h3 {
+        font-family: var(--font-display);
+        font-size: 1.1rem;
+        color: var(--teal-dark);
+        margin: 0 0 1rem;
+      }
+    }
+
+    .areas-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+
+      li {
+        font-size: 0.85rem;
+        color: var(--ink);
+        background: var(--paper);
+        border: 1px solid rgba(20, 66, 77, 0.15);
+        padding: 0.35rem 0.75rem;
+        border-radius: 999px;
+      }
+    }
+  }
+</style>

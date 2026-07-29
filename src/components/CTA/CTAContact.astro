@@ -1,0 +1,89 @@
+---
+import { BUSINESS } from "@data/client";
+---
+
+<section id="contact">
+  <div class="section-inner">
+    <h2>Get in touch</h2>
+    <p>A plumbing &amp; drainage specialist is available 24/7 &mdash; call or email anytime.</p>
+
+    <div class="contact-actions">
+      <a class="contact-btn phone" href={BUSINESS.phoneHref}>
+        <span class="label">Call now</span>
+        <span class="value">{BUSINESS.phoneDisplay}</span>
+      </a>
+      <a class="contact-btn email" href={BUSINESS.emailHref}>
+        <span class="label">Email us</span>
+        <span class="value">{BUSINESS.email}</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style lang="less">
+  #contact {
+    background: linear-gradient(180deg, var(--teal) 0%, var(--teal-dark) 100%);
+    color: var(--white);
+    padding: 4.5rem 1.25rem;
+    text-align: center;
+
+    .section-inner {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 3vw, 2.25rem);
+      margin: 0 0 0.75rem;
+    }
+
+    p {
+      color: rgba(255, 255, 255, 0.85);
+      margin: 0 0 2.5rem;
+    }
+
+    .contact-actions {
+      display: flex;
+      gap: 1.25rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .contact-btn {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1.5px solid rgba(255, 255, 255, 0.25);
+      border-radius: 12px;
+      padding: 1.1rem 2rem;
+      text-decoration: none;
+      color: var(--white);
+      min-width: 220px;
+      transition: background 0.15s ease, border-color 0.15s ease;
+
+      .label {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: rgba(255, 255, 255, 0.65);
+      }
+
+      .value {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 1.15rem;
+      }
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.16);
+        border-color: var(--amber);
+      }
+
+      &.phone .value {
+        color: var(--amber);
+      }
+    }
+  }
+</style>

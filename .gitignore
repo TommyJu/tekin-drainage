@@ -1,0 +1,6 @@
+node_modules
+.astro/
+.env
+.env.*
+.DS_Store
+.demo-removed

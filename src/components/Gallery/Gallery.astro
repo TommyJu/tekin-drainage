@@ -1,0 +1,91 @@
+---
+// Move your job-site photos into src/assets/images/gallery/ and import each
+// one below. Static imports are what let Astro optimize/resize them —
+// this is the fix for the old carousel's raw, unresized phone photos.
+import { Image } from "astro:assets";
+import photo1 from "@assets/images/gallery/job-01.jpg";
+import photo2 from "@assets/images/gallery/job-02.jpg";
+import photo3 from "@assets/images/gallery/job-03.jpg";
+import photo4 from "@assets/images/gallery/job-04.jpg";
+import photo5 from "@assets/images/gallery/job-05.jpg";
+import photo6 from "@assets/images/gallery/job-06.jpg";
+
+// Add an `alt` per photo — describe the actual job, not just "plumbing photo".
+// Specific alt text helps both accessibility and local SEO image search.
+const photos = [
+  { src: photo1, alt: "Hydro jetting a clogged main line" },
+  { src: photo2, alt: "Camera inspection of a residential drain" },
+  { src: photo3, alt: "Trenchless pipe repair in progress" },
+  { src: photo4, alt: "New sump pump installation" },
+  { src: photo5, alt: "Excavation for a sewer main repair" },
+  { src: photo6, alt: "Perimeter drain replacement" },
+];
+---
+
+<section id="gallery">
+  <div class="section-inner">
+    <p class="eyebrow">Recent work</p>
+    <h2>We can help, no matter how big or small</h2>
+
+    <div class="gallery-grid">
+      {photos.map((photo) => (
+        <div class="gallery-item">
+          <Image src={photo.src} alt={photo.alt} width={480} height={360} loading="lazy" />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style lang="less">
+  #gallery {
+    padding: 4.5rem 1.25rem;
+    background: var(--white);
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      font-family: var(--font-display);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.85rem;
+      color: var(--amber-dark);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 3vw, 2.25rem);
+      color: var(--teal-dark);
+      margin: 0 0 2rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .gallery-item {
+      border-radius: 10px;
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.3s ease;
+      }
+
+      &:hover img {
+        transform: scale(1.04);
+      }
+    }
+  }
+</style>

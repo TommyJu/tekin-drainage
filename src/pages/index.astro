@@ -1,0 +1,17 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Hero from "@components/Hero/Hero.astro";
+import Services from "@components/Services/Services.astro";
+import Gallery from "@components/Gallery/Gallery.astro";
+import Reviews from "@components/Reviews/Reviews.astro";
+import CTAContact from "@components/CTA/CTAContact.astro";
+import { SITE } from "@data/client";
+---
+
+<BaseLayout title={SITE.title} description={SITE.description}>
+  <Hero />
+  <Services />
+  <Gallery />
+  <Reviews />
+  <CTAContact />
+</BaseLayout>

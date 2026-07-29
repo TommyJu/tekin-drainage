@@ -1,0 +1,48 @@
+---
+import { BUSINESS, SITE } from "@data/client";
+import { getLocalBusinessSchema } from "@js/localBusinessSchema.js";
+
+interface Props {
+	title?: string; // Override default title
+	description?: string; // Override default description
+}
+
+const { title = SITE.title, description = SITE.description } = Astro.props;
+
+// Data
+const localBusinessSchema = getLocalBusinessSchema(Astro.url.origin);
+const canonical = Astro.url.href;
+
+// Detect home page for special title formatting
+const isHomePage = Astro.url.pathname === "/";
+
+// Format page title with business name (and location if home page)
+const pageTitle = isHomePage ? `${title} | ${BUSINESS.name} | ${BUSINESS.address.city}, ${BUSINESS.address.province}` : `${title} | ${BUSINESS.name}`;
+---
+
+<!-- LocalBusiness Schema (on ALL pages) - customize your JSON-LD structured data:
+     https://developers.google.com/search/docs/advanced/structured-data/intro-structured-data  -->
+<script is:inline type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+
+<!-- Allow additional schemas from child layouts (e.g., BlogPosting for blog posts) -->
+<slot name="schema" />
+
+<!-- Page Title -->
+<title>{pageTitle}</title>
+
+<!-- Standard Meta Tags -->
+<meta charset="utf-8" />
+<meta name="description" content={description} />
+<meta name="web_author" content={SITE.author} />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<link rel="canonical" href={canonical} />
+
+<!-- Favicons -->
+<!-- Use [RealFaviconGenerator.net](https://realfavicongenerator.net/) -->
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png?v1" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png" />
+<link rel="manifest" href="/assets/favicons/site.webmanifest" />
+<meta name="msapplication-TileColor" content="#da532c" />
+<meta name="theme-color" content="#ffffff" />

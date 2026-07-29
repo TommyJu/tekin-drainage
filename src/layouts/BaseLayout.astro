@@ -1,0 +1,52 @@
+---
+// Utils
+import { Font } from "astro:assets";
+import { ClientRouter } from "astro:transitions";
+import "@styles/root.less";
+
+
+// Components
+import StaticHeader from "@components/Header/StaticHeader.astro";
+// import Footer from "@components/Footer/Footer.astro";
+import Meta from "@components/Meta/Meta.astro";
+
+// Data
+import { SITE } from "@data/client";
+
+interface Props {
+	title: string;
+	description: string;
+}
+
+const { description, title } = Astro.props as Props;
+---
+
+<html lang={SITE.locale}>
+	<head>
+		<!-- View Transitions support -->
+		<ClientRouter />
+
+		<!-- SEO Meta Tags -->
+		<Meta title={title} description={description} >
+			<slot name="schema" slot="schema" />
+		</Meta>
+
+		<!-- Astro custom Font API -->
+		<Font cssVariable="--font-primary" />
+
+		<!-- Sitewide Scripts -->
+		<script src="@js/nav.js"></script>
+	</head>
+	<body>
+		<!-- Screen reader skip main nav -->
+		<a class="skip" aria-label="skip to main content" href="#main"
+			>Click To Skip To Main Content</a
+		>
+
+		<StaticHeader />
+		<main id="main">
+			<slot />
+		</main>
+		<!-- <Footer /> -->
+	</body>
+</html>

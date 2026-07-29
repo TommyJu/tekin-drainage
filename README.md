@@ -1,4 +1,30 @@
-# tekin-drainage
-A landing page for my step dad's plumbing company.
+# Tekin Drainage
 
-Project summary: This project helped me solidify my understanding of HTML and CSS so that I can feel confident creating web pages for future projects. I experimented with using Bootstrap by implementing a carousel feature and it forced me to overcome challenges with the help of forums. I also learned that with the use of Flexbox and media queries, creating a responsive web page isn't too difficult. Overall, I am excited to keep on learning. Even though some of my code might not be considered best practice, I will embrace imperfection as an opportunity to keep improving.
+A modern landing page built for my stepdad's plumbing company.
+
+## Project Overview
+
+This project involved redesigning and rebuilding a business landing page using modern frontend tools and workflows. The goal was to create a fast, responsive, and professional website that improves the company's online presence.
+
+The site was built using **Astro**, taking advantage of its performance-focused architecture and content-driven approach. I used a template as a foundation and customized the design, structure, and content to fit the needs of the business.
+
+Throughout development, I used AI-assisted tools to improve my workflow, including helping with code exploration, debugging, component customization, and frontend implementation. This allowed me to iterate faster while still understanding and refining the code behind each feature.
+
+## Technologies Used
+
+* Astro
+* TypeScript
+* HTML/CSS
+* Tailwind CSS
+* JavaScript
+* Git/GitHub
+
+## Key Learnings
+
+* Building production-style websites using Astro's component and content architecture
+* Creating responsive layouts for different screen sizes
+* Adapting and customizing existing frontend systems
+* Using AI tools effectively as a development assistant
+* Improving development speed through modern workflows
+
+This project helped me move from building simple static pages toward creating polished, real-world websites for businesses and clients.
