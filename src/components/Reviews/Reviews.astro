@@ -5,14 +5,17 @@ import { getReviewSchema } from "@js/reviewSchema.js";
 // Replace with real reviews copied from your Google Business Profile.
 // Keep the wording close to verbatim — don't invent quotes.
 const reviews = [
-  { author: "REPLACE — Google reviewer name", rating: 5, quote: "REPLACE with an actual review quote from your Google profile." },
-  { author: "REPLACE — Google reviewer name", rating: 5, quote: "REPLACE with an actual review quote from your Google profile." },
-  { author: "REPLACE — Google reviewer name", rating: 5, quote: "REPLACE with an actual review quote from your Google profile." },
+  { author: "Viktor Kolenc", rating: 5, quote: "Last week I had a big scare, my sewerline was flooding in my basement and I couldn't get anyone over for over 2 days! Luckily I found these guys and they came right away. They did great work and fixed me up same day. I'm very happy with their service and would highly recommend Tekin Drainage and Plumbing to anyone! Thanks Again!!" },
+  { author: "Kelsey Dang", rating: 5, quote: "Nezih was a very good plumber. He was polite, knowledgable and fixed my backed up garburator within the hour. Overall, great service from him." },
+  { author: "Paul Tran", rating: 5, quote: "I have a sewer backup into my basement. I called Tekin Drainage company and they showed up within an hour. They diagnosis the issue and cleared it very quickly. They even showed me what was wrong with my drainage in their's camera and explained to us what needs to be done to prevent it. Great company, highly recommend to anyone who needs drain cleaning services." },
+  { author: "Roz Nanjee", rating: 5, quote: "Had a great experience today. All issues were handled so well. Definitely recommend it to anyone. Fast and reliable." },
+  { author: "Ilan Farzan", rating: 5, quote: "Been working with Nezih for over 10 years. Always with good results. As professional and knowledgeable as they come. Highly recommended." },
+  { author: "Michael Kinsey", rating: 5, quote: "Very Knowledgeable , I work with Nez regularly, and he is a very capable Plumber and Drainage contractor." },
 ];
 
 // Replace with your real aggregate numbers from Google.
 const ratingValue = "5.0";
-const reviewCount = "0";
+const reviewCount = "11";
 
 const schema = getReviewSchema(reviews, ratingValue, reviewCount);
 ---
@@ -40,9 +43,6 @@ const schema = getReviewSchema(reviews, ratingValue, reviewCount);
     <div class="review-actions">
       <a class="btn btn-primary" href={BUSINESS.googleReviewUrl} target="_blank" rel="noopener">
         Leave us a review
-      </a>
-      <a class="btn btn-ghost" href={BUSINESS.googleProfileUrl} target="_blank" rel="noopener">
-        Read all reviews on Google
       </a>
     </div>
   </div>

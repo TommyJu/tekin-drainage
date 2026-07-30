@@ -49,8 +49,7 @@ export const BUSINESS = {
 
   // Replace REPLACE-ME with your actual Google Place ID.
   // Find it at https://developers.google.com/maps/documentation/places/web-service/place-id
-  googleReviewUrl: "https://search.google.com/local/writereview?placeid=REPLACE-ME",
-  googleProfileUrl: "https://g.page/r/REPLACE-ME",
+  googleReviewUrl: "https://maps.app.goo.gl/dczbbgjVkUPZ8XLQA",
 };
 
 // Expanded service detail — each item gets a short explanation instead of

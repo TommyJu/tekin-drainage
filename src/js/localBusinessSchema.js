@@ -1,27 +1,31 @@
 import { SITE, BUSINESS } from "@data/client";
 
 export function getLocalBusinessSchema(origin) {
-	const sameAs = [];
-	if (BUSINESS.socials?.facebook) sameAs.push(BUSINESS.socials.facebook);
-	if (BUSINESS.socials?.instagram) sameAs.push(BUSINESS.socials.instagram);
 
 	return {
 		"@context": "https://schema.org",
-		"@type": ["LocalBusiness", "WebSite"],
+		"@type": "LocalBusiness",
+
 		"name": BUSINESS.name,
 		"url": SITE.url,
-		"logo": origin + BUSINESS.logo,
-		"image": origin + BUSINESS.logo,
+
 		"email": BUSINESS.email,
-		"telephone": BUSINESS.phoneForTel,
+		"telephone": BUSINESS.phoneDisplay,
+
 		"address": {
 			"@type": "PostalAddress",
-			"streetAddress": `${BUSINESS.address.lineOne}, ${BUSINESS.address.lineTwo}`,
 			"addressLocality": BUSINESS.address.city,
-			"addressRegion": BUSINESS.address.state,
-			"postalCode": BUSINESS.address.zip,
+			"addressRegion": BUSINESS.address.province,
+			"addressCountry": BUSINESS.address.country,
 		},
-		"sameAs": sameAs,
+
+		"areaServed": BUSINESS.serviceAreas,
+
+		"openingHours": BUSINESS.openingHours,
+
 		"inLanguage": SITE.locale,
+
+		"image": origin + BUSINESS.logo,
+		"logo": origin + BUSINESS.logo,
 	};
 }
